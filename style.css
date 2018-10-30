@@ -1,0 +1,21 @@
+
+body {
+	background-color: gainsboro;
+	font-family: verdana;
+}
+
+.pyramid-block {
+	margin: 5px;
+	padding: 5px;
+	color: darkmagenta;
+
+}
+
+.top-bar {
+	padding: 10px;
+}
+
+#div-head {
+	background-color: darkgray;
+	height: 100px;
+}

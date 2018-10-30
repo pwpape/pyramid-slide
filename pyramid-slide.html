@@ -1,18 +1,20 @@
 <html>
 	<head>
 		<meta charset="UTF8">
+		<link href="style.css" rel="stylesheet" type="text/css" />
 		<title>Mario Slide</title>
 	</head>
 	<body>
-				<label id="select-label" for="select-list">Brick Symbol
-					<select id="select-list"></select>
+		<div id="div-head">
+				<label id="select-label" class="top-bar" for="select-list">Brick Symbol:
+					<select id="select-list" class-"top-bar"></select>
 				</label>
 
-				<label id="slider-label" for="slider">How high?
-					<input id="slider" type="range" min="1" max="15" />
+				<label id="slider-label" class="top-bar" for="slider">How high?
+					<input id="slider" class="top-bar" type="range" min="1" max="20" />
 					<span id=slider-value></span>
 				</label>
-			
+		</div>	
 
 		<div id="pyramid-output">
 		</div>
@@ -64,6 +66,7 @@
 					}
 
 					let emptyP = document.createElement("p");
+					emptyP.setAttribute("class", "pyramid-block");
 					let text = document.createTextNode("");
 					brick += counter;
 					text = wSP + brick;
@@ -91,8 +94,10 @@
 
 			
 			let selectList = document.getElementById("select-list");
+			let sliderInit = document.getElementById("slider");
 			createList();
 			addSliderValue();
+			drawPyramid(sliderInit.value, selectList.value);
 			selectList.addEventListener("change", getSymbolAndDrawPyramid);
 			slider.addEventListener("input", getHeightAndDrawPyramid);
 
