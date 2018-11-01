@@ -5,12 +5,12 @@
 		<title>Mario Slide</title>
 	</head>
 	<body>
-		<div id="div-head">
-				<label id="select-label" class="top-bar" for="select-list">Brick Symbol:
+		<div id="div-head" class="top-grid">
+				<label id="select-label" class="left-label" class="top-bar" for="select-list">Brick Symbol:
 					<select id="select-list" class-"top-bar"></select>
 				</label>
 
-				<label id="slider-label" class="top-bar" for="slider">How high?
+				<label id="slider-label" class="right-label" class="top-bar" for="slider">How high?
 					<input id="slider" class="top-bar" type="range" min="1" max="20" />
 					<span id=slider-value></span>
 				</label>
@@ -19,88 +19,7 @@
 		<div id="pyramid-output">
 		</div>
 
-		<script>
-			
-			let selectListItems = ["#", "*", "@", "X", "$"];
-			
-			function createList()
-			{
-				let selectList = document.getElementById("select-list");
-				for (let item of selectListItems)
-				{
-					let option = document.createElement("option");
-					option.value = item;
-					option.text = item;
-					selectList.appendChild(option);
-				}
-			}
-
-			function addSliderValue()
-			{
-				let slider = document.getElementById("slider");
-				let pValue = document.getElementById("slider-value");
-				pValue = document.getElementById("slider-value");
-				pValue.innerHTML = slider.value;
-			}
-
-			function drawPyramid(height, symbol) 
-			{
-				let pyramid = document.getElementById("pyramid-output");
-				while (pyramid.firstChild)
-				{
-					pyramid.removeChild(pyramid.firstChild);
-				}
-				
-				let brick = symbol;
-				let counter = symbol;
-
-				for (let i = 0; i < height; i++)
-				{
-					
-					let wSP = "&emsp;";
-					let space = "&emsp;";
-
-					for (let i = height; i > brick.length; i--)
-					{						
-						wSP += space;
-					}
-
-					let emptyP = document.createElement("p");
-					emptyP.setAttribute("class", "pyramid-block");
-					let text = document.createTextNode("");
-					brick += counter;
-					text = wSP + brick;
-					emptyP.innerHTML = text;
-					pyramid.appendChild(emptyP);
-					
-				}
-						
-			}
-
-			function getSymbolAndDrawPyramid()
-			{
-				let slider = document.getElementById("slider");
-				let symbol = document.getElementById("select-list");
-				drawPyramid(slider.value, symbol.value);
-			}
-
-			function getHeightAndDrawPyramid()
-			{
-				let slider = document.getElementById("slider");
-				let symbol = document.getElementById("select-list");
-				addSliderValue();
-				drawPyramid(slider.value, symbol.value);
-			}
-
-			
-			let selectList = document.getElementById("select-list");
-			let sliderInit = document.getElementById("slider");
-			createList();
-			addSliderValue();
-			drawPyramid(sliderInit.value, selectList.value);
-			selectList.addEventListener("change", getSymbolAndDrawPyramid);
-			slider.addEventListener("input", getHeightAndDrawPyramid);
-
+		<script type="text/javascript" src="pyramid-slide.js">
 		</script>
 	</body>
 </html>
