@@ -20,7 +20,46 @@ let selectListItems = ["#", "*", "@", "X", "$"];
 				pValue.innerHTML = slider.value;
 			}
 
-			function drawPyramid(height, symbol) 
+			function drawPyramid(height, symbol)
+			{
+				let pyramid = document.getElementById("pyramid-output");
+				while (pyramid.firstChild)
+				{
+					pyramid.removeChild(pyramid.firstChild);
+				}
+
+				let brick = symbol;
+				let counter = symbol;
+				let table = document.createElement("table");
+				pyramid.appendChild(table);
+
+				for (let row = 0; row < height; row++)
+				{
+					brick += counter;
+					let wSP = "&nbsp;";
+					let tableFiller = [];
+
+					for (let i = height; i >= brick.length; i--)
+					{					
+						tableFiller.push(wSP);
+					}
+
+					for (let elt of brick)
+					{
+						tableFiller.push(elt);
+					}
+
+					let tableRow = table.insertRow(row);
+					for (let td = 0; td <= height; td++)
+					{
+						let cell = tableRow.insertCell(td);
+						cell.setAttribute("class", "pyramid-block");
+						cell.innerHTML = tableFiller[td];
+					}
+				}
+			}
+
+			/*function drawPyramid(height, symbol) 
 			{
 				let pyramid = document.getElementById("pyramid-output");
 				while (pyramid.firstChild)
@@ -51,7 +90,7 @@ let selectListItems = ["#", "*", "@", "X", "$"];
 					
 				}
 						
-			}
+			}*/
 
 			function getSymbolAndDrawPyramid()
 			{
