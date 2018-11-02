@@ -30,7 +30,7 @@ let selectListItems = ["#", "*", "@", "X", "$"];
 
 				let brick = symbol;
 				let counter = symbol;
-				let table = document.createElement("table");
+				let table = document.createElement("table");				
 				pyramid.appendChild(table);
 
 				for (let row = 0; row < height; row++)

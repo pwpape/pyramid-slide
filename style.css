@@ -1,8 +1,10 @@
 body {
 	background-color: gainsboro;
 	font-family: verdana;
+	text-align: center;
 }
 
+/*
 .top-grid {
 	background-color: darkgray;
 	padding: 10px;
@@ -21,7 +23,12 @@ body {
 	grid-column: 2 / 3;
 	grid-row: 1;
 }
+*/
 
 .pyramid-block {
 	color: darkmagenta;
+}
+
+#pyramid-output {
+	padding: 50px;
 }
